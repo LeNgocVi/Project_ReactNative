@@ -5,6 +5,7 @@ import HomeScreen from "./Home";
 import LoginScreen from "./src/components/authentication/login";
 import ForgotPassword from "./src/components/authentication/forgotPassword";
 import React from "react";
+import BottomTab from "./src/navigation/bottomTab";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
           component={LoginScreen}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="BottomTab" component={BottomTab} />
         <Stack.Screen
           options={{ headerShown: false }}
           name="ForgotPassWord"
