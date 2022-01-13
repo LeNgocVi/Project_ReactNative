@@ -18,7 +18,11 @@ export default function App() {
           component={LoginScreen}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="BottomTab" component={BottomTab} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="BottomTab"
+          component={BottomTab}
+        />
         <Stack.Screen
           options={{ headerShown: false }}
           name="ForgotPassWord"
