@@ -1,7 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import { AntDesign } from "@expo/vector-icons";
 import { View, Text } from "react-native";
 const Tab = createBottomTabNavigator();
+import Dashboard from "../components/dashboard/dashboad";
 import HomeScreen from "../../Home";
 import Centres from "../Centres/CentresApp";
 function CentresScreen() {
@@ -49,6 +51,28 @@ export default function BottomTab() {
       <Tab.Screen
         name="Dashboard"
         color="#ff6600"
+      initialRouteName="Home" //route default
+      //   labeled={true} // show label+icon
+      activeColor="#ff6600" //color of active tab
+      style={{ backgroundColor: "red" }}
+      shifting={false} // show all label
+      barStyle={{
+        backgroundColor: "white",
+      }}
+    />
+      <Tab.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{
+          headerShown: false,
+          tabBarLabel: "Dasboard",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Home"
         component={HomeScreen}
         options={{
           tabBarLabel: "Dashboard",

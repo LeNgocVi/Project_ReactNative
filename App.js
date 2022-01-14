@@ -21,8 +21,16 @@ export default function App() {
           component={LoginScreen}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
+<<<<<<< HEAD
         <Stack.Screen name="BottomTab" component={BottomTab} />
     
+=======
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="BottomTab"
+          component={BottomTab}
+        />
+>>>>>>> a722c47611852c09e0bbf5d135d33bbed3acbe2e
         <Stack.Screen
           options={{ headerShown: false }}
           name="ForgotPassWord"
