@@ -3,7 +3,7 @@ export const DATA = [
         id: "1",
         title: "Castle Hill Montessori Academy",
         content: "Lorem ipsum dolor sit amet",
-        address: "1 Kerrs Road, Castle Hill, NSW 2154",
+        address: "Kerrs Road, Castle Hill, NSW 2154",
         children: "90 childrens",
         waitlist: 48,
         service: 4,

@@ -29,13 +29,16 @@ export default function Detail() {
           tabBarIcon: ({ focused }) => (
             <TouchableOpacity
               style={{
-                width: 100,
-                marginLeft: -40,
-                paddingHorizontal: 15,
-                paddingVertical: 5,
+                width:80,
+                marginLeft:-35,
                 backgroundColor: focused ? '#fff' : '',
+                paddingHorizontal: 25,
+                paddingVertical: 5,
                 borderRadius: 6,
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
+              
             >
               <Text
                 style={{
@@ -57,9 +60,9 @@ export default function Detail() {
           tabBarIcon: ({ focused }) => (
             <TouchableOpacity
               style={{
-                width: 142,
-                paddingLeft:-100,
-                paddingHorizontal: 15,
+                marginLeft:-65,
+                width:150,
+                paddingHorizontal: 25,
                 paddingVertical: 5,
                 backgroundColor: focused ? '#fff' : '',
                 borderRadius: 6,
@@ -74,7 +77,7 @@ export default function Detail() {
                   fontWeight: 'bold',
                 }}
               >
-                USER INFORMATION
+               USER INFORMATION
               </Text>
             </TouchableOpacity>
           ),
@@ -100,7 +103,7 @@ export default function Detail() {
               <Text
                 style={{
                   color: focused ? '#e91e63' : '#857E7F',
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 'bold',
                 }}
               >
@@ -118,7 +121,7 @@ export default function Detail() {
             <TouchableOpacity
               style={{
                 width: 92,
-                marginLeft: -40,
+                marginLeft: -35,
                 paddingHorizontal: 25,
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -130,7 +133,7 @@ export default function Detail() {
               <Text
                 style={{
                   color: focused ? '#e91e63' : '#857E7F',
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 'bold',
                 }}
               >
@@ -160,7 +163,7 @@ export default function Detail() {
               <Text
                 style={{
                   color: focused ? '#e91e63' : '#857E7F',
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 'bold',
                 }}
               >
@@ -190,7 +193,7 @@ export default function Detail() {
               <Text
                 style={{
                   color: focused ? '#e91e63' : '#857E7F',
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 'bold',
                 }}
               >
@@ -208,7 +211,7 @@ export default function Detail() {
             <TouchableOpacity
               style={{
                 width: 140,
-                marginLeft: -40,
+                marginLeft: -60,
                 paddingHorizontal: 25,
                 paddingVertical: 5,
                 backgroundColor: focused ? '#fff' : '',
@@ -218,7 +221,7 @@ export default function Detail() {
               <Text
                 style={{
                   color: focused ? '#e91e63' : '#857E7F',
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 'bold',
                 }}
               >

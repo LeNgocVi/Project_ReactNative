@@ -3,14 +3,17 @@ import { View, ScrollView, StyleSheet, Text, FlatList } from "react-native-web";
 import { Card, Title, Paragraph, Portal, Searchbar, Modal, Provider } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import Header from "../Header";
 import { DATA } from "./data";
+import CircleBorder from '../CircleBorder';
 
 
 
 
-export default function Centres({navigation }) {
+export default function Centres({ navigation }) {
     const [visible, setVisible] = React.useState(false);
 
     const showModal = () => setVisible(true);
@@ -36,52 +39,78 @@ export default function Centres({navigation }) {
                         } />
                     <View style={styles.sliderContainer}>
                         <ScrollView horizontal={true} hire >
+
+
+
                             <View style={styles.sliderCard}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <MaterialCommunityIcons
-                                        name="storefront-outline"
-                                        size={25}
-                                        color="#ff6600"
-                                    />
-                                    <Text style={{ marginLeft: 15, marginTop: -4, fontSize: 20 }}>Total Centres</Text>
+                                    <CircleBorder
+                                        size={40}
+                                        borderWidth={2}
+                                        backgroundColor="#FFF0FB"
+                                        marginTop={-8}
+                                    >
+                                        <MaterialCommunityIcons
+                                            name="storefront-outline"
+                                            size={16}
+                                            color="#DB147F"
+                                        />
+                                    </CircleBorder>
+                                    <Text style={styles.sliderTitle}>Total Centres</Text>
                                 </View>
                                 <Text style={styles.sliderText}>122</Text>
                             </View>
 
                             <View style={styles.sliderCard}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <MaterialCommunityIcons
-                                        name="storefront-outline"
-                                        size={25}
-                                        color="#ff6600"
-                                    />
-                                    <Text style={{ marginLeft: 15, marginTop: -4, fontSize: 20 }}>Total Centres</Text>
+                                    <CircleBorder
+                                        size={40}
+                                        borderWidth={2}
+                                        backgroundColor="#FFF4EC"
+                                        marginTop={-8}
+                                    >
+                                        <Ionicons name="location-outline" size={16} color="#FB8429" />
+                                    </CircleBorder>
+                                    <Text style={styles.sliderTitle}>Total Places</Text>
                                 </View>
-                                <Text style={styles.sliderText}>122</Text>
+                                <Text style={styles.sliderText}>3200</Text>
                             </View>
 
                             <View style={styles.sliderCard}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <MaterialCommunityIcons
-                                        name="storefront-outline"
-                                        size={25}
-                                        color="#ff6600"
-                                    />
-                                    <Text style={{ marginLeft: 15, marginTop: -4, fontSize: 20 }}>Total Centres</Text>
+                                    <CircleBorder
+                                        size={40}
+                                        borderWidth={2}
+                                        backgroundColor="#E9F4FF"
+                                        marginTop={-8}
+                                    >
+                                        <Feather name="dollar-sign" size={16} color="#32A4FC" />
+                                    </CircleBorder>
+                                    <Text style={styles.sliderTitle}>Est. Earning</Text>
                                 </View>
-                                <Text style={styles.sliderText}>122</Text>
+                                <Text style={styles.sliderText}>$3,465,000</Text>
                             </View>
+
                             <View style={styles.sliderCard}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <MaterialCommunityIcons
-                                        name="storefront-outline"
-                                        size={25}
-                                        color="#ff6600"
-                                    />
-                                    <Text style={{ marginLeft: 15, marginTop: -4, fontSize: 20 }}>Total Centres</Text>
+                                    <CircleBorder
+                                        size={40}
+                                        borderWidth={2}
+                                        backgroundColor="#FEEFEF"
+                                        marginTop={-8}
+                                    >
+                                        <FontAwesome5
+                                            name="clipboard-list"
+                                            size={16}
+                                            color="#E52828"
+                                        />
+                                    </CircleBorder>
+                                    <Text style={styles.sliderTitle}>Waitlist Value </Text>
                                 </View>
-                                <Text style={styles.sliderText}>122</Text>
+                                <Text style={styles.sliderText}>$3,465</Text>
                             </View>
+
+
                         </ScrollView>
                     </View>
                 </View>
@@ -102,7 +131,7 @@ export default function Centres({navigation }) {
                             styles={{ width: '20%', marginLeft: 10 }}
                             color="#ff6600"
                             onPress={showModal}
-                          
+
                         />
 
                     </View>
@@ -111,53 +140,54 @@ export default function Centres({navigation }) {
                         data={DATA}
                         renderItem={({ item }) =>
                             <View style={{ marginTop: 10, marginRight: 20, }} >
-                                <Card  onPress={() => {navigation.navigate("CentreDetails")}}>
+                                <Card onPress={() => { navigation.navigate("CentreDetails") }}>
                                     <Card.Cover style={{ height: 80, borderTopLeftRadius: 15, borderTopRightRadius: 15 }} source={{ uri: item.Image }} />
-                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%" }}>
-                                        <Text style={{ color: "#ffffff" }}>9.9</Text>
+                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%", borderRadius: 4, justifyContent: 'center',   alignItems: 'center', }}>
+                                        <Text style={{ color: "#ffffff", }}>9.9</Text>
                                     </View>
                                     <Card.Content>
-                                        <Title><b>{item.title}</b></Title>
-                                        <Text styles={{ size: 40, }}>
-                                            <MaterialIcons name="place"
-                                                size={25}
-                                                marginTop={20}
-                                                color="#ff6600" marginRight={10}
-                                            />  {item.address}
-                                        </Text>
-                                        <View style={{ flexDirection: "row" }}>
+                                        <View style={{ marginTop: 15 }}>
+                                            <b>{item.title}</b>
+                                        </View>
+                                        <View style={{ marginTop: 15 }}>
+                                            <Text styles={{ size: 40 }}>
+                                                <Ionicons name="location-outline" size={14} color="#857E7F" />  {item.address}
+                                            </Text>
+                                        </View>
+                                        <View style={{ flexDirection: "row", marginTop: 15 }}>
                                             <View style={{ width: "50%" }}>
-                                                <Text ><MaterialCommunityIcons
-                                                    name="account-child"
-                                                    size={25}
-                                                    color="#ff6600" marginRight={10}
-                                                />{item.children}</Text>
+                                                <Text ><Ionicons
+                                                    name="happy"
+                                                    size={14}
+                                                    color="#857E7F" paddingHorizontal={30}
+                                                />  {item.children}</Text>
                                             </View>
                                             <View style={{ width: "50%", }}>
-                                                <Text ><MaterialCommunityIcons
-                                                    name="calculator"
-                                                    size={25}
-                                                    color="#ff6600" marginRight={10}
-                                                />{item.base}</Text>
+                                                <Text ><FontAwesome5
+                                                    name="clipboard-list"
+                                                    size={14}
+                                                    color="#857E7F"
+                                                    marginRight={30}
+                                                />  {item.base}</Text>
                                             </View>
 
                                         </View>
 
-                                        <View style={{ flexDirection: "row" }}>
+                                        <View style={{ flexDirection: "row", marginTop: 15 }}>
                                             <View style={{ width: "50%", }}>
-                                                <Text style={{ color: 'blue' }}><MaterialCommunityIcons
-                                                    name="wechat"
-                                                    size={25}
-                                                    color="#ff6600" marginRight={10}
-                                                />{item.waitlist}</Text>
+                                                <Text style={{ color: 'blue' }}> <FontAwesome5
+                                                    name="temperature-low"
+                                                    size={14}
+                                                    color="#857E7F"
+                                                />  {item.waitlist}</Text>
                                             </View>
 
                                             <View style={{ width: "50%" }}>
-                                                <Text><MaterialCommunityIcons
-                                                    name="chili-hot"
-                                                    size={25}
-                                                    color="#ff6600" marginRight={10}
-                                                />{item.service}</Text>
+                                                <Text><FontAwesome5
+                                                    name="hand-holding-water"
+                                                    size={14}
+                                                    color="#857E7F"
+                                                />  {item.service}</Text>
                                             </View>
 
                                         </View>
