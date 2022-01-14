@@ -29,7 +29,7 @@ export default function Dashboard() {
             <View style={styles.cardLine}></View>
             <View style={styles.cardFrame}>
               <View style={styles.row}>
-                <Text style={styles.styleText}>Open Application Value</Text>
+                <Text style={styles.styleText}>Open Application Value </Text>
                 <Text style={styles.styleText}>116,688,8</Text>
               </View>
               <View style={styles.row}>

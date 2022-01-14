@@ -12,31 +12,27 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <BottomTab />
-      {/* <Stack.Navigator>
-      <Stack.Screen name="Detail" component={Detail} />
+  
+      <Stack.Navigator>
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
           component={LoginScreen}
         />
-        <Stack.Screen name="Home" component={HomeScreen} />
-<<<<<<< HEAD
-        <Stack.Screen name="BottomTab" component={BottomTab} />
-    
-=======
+      
         <Stack.Screen
           options={{ headerShown: false }}
           name="BottomTab"
           component={BottomTab}
         />
->>>>>>> a722c47611852c09e0bbf5d135d33bbed3acbe2e
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="ForgotPassWord"
           component={ForgotPassword}
         />
-      </Stack.Navigator> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
