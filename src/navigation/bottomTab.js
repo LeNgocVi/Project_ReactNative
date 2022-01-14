@@ -5,6 +5,7 @@ import { View, Text } from "react-native";
 const Tab = createBottomTabNavigator();
 import Dashboard from "../components/dashboard/dashboad";
 import HomeScreen from "../../Home";
+import Centres from "../Centres/CentresApp";
 function CentresScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -23,6 +24,33 @@ function SettingsScreen() {
 export default function BottomTab() {
   return (
     <Tab.Navigator
+      initialRouteName="Dashboard"
+      screenOptions={({ navigation, route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ focused, color }) => {
+          let iconName;
+
+          if (route.name === 'Dashboard') {
+            iconName = focused ? 'home-outline' : 'home-outline';
+          } else if (route.name === 'Centres') {
+            iconName = focused ? 'storefront-outline' : 'storefront-outline';
+          } else if (route.name === 'More') {
+            iconName = focused ? 'dots-horizontal' : 'dots-horizontal';
+          }
+          return (
+            <MaterialCommunityIcons name={iconName} size={30} color={color} />
+          );
+        },
+        tabBarActiveTintColor: '#ff6600   ',
+        tabBarInactiveTintColor: 'gray',
+        headerTitleAlign: 'center',
+        tabBarLabelStyle: {
+          fontSize: 15,
+        },
+      })}>
+      <Tab.Screen
+        name="Dashboard"
+        color="#ff6600"
       initialRouteName="Home" //route default
       //   labeled={true} // show label+icon
       activeColor="#ff6600" //color of active tab
@@ -31,7 +59,7 @@ export default function BottomTab() {
       barStyle={{
         backgroundColor: "white",
       }}
-    >
+    />
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
@@ -47,15 +75,15 @@ export default function BottomTab() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "Dashboard",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons name="home-outline" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
         name="Centres"
-        component={CentresScreen}
+        component={Centres}
         options={{
           tabBarLabel: "Centres",
           tabBarIcon: ({ color }) => (
@@ -81,6 +109,7 @@ export default function BottomTab() {
           ),
         }}
       />
+      
     </Tab.Navigator>
   );
 }
