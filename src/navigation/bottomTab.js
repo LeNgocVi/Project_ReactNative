@@ -48,18 +48,8 @@ export default function BottomTab() {
           fontSize: 15,
         },
       })}>
-      <Tab.Screen
-        name="Dashboard"
-        color="#ff6600"
-      initialRouteName="Home" //route default
-      //   labeled={true} // show label+icon
-      activeColor="#ff6600" //color of active tab
-      style={{ backgroundColor: "red" }}
-      shifting={false} // show all label
-      barStyle={{
-        backgroundColor: "white",
-      }}
-    />
+
+
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
@@ -71,16 +61,7 @@ export default function BottomTab() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: "Dashboard",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home-outline" color={color} size={26} />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Centres"
         component={Centres}
@@ -109,7 +90,7 @@ export default function BottomTab() {
           ),
         }}
       />
-      
+
     </Tab.Navigator>
   );
 }

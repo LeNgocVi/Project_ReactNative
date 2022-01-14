@@ -72,7 +72,7 @@ export default function Detail() {
             >
               <Text
                 style={{
-                  color: focused ? '#e91e63' : '#857E7F',
+                  color: focused ? '#ff6600' : '#857E7F',
                   fontSize: 10,
                   fontWeight: 'bold',
                 }}

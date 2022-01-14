@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import Header from "../Header";
+import Header from '../components/header';
 import { DATA } from "./data";
 import CircleBorder from '../CircleBorder';
 
@@ -30,12 +30,12 @@ export default function Centres({ navigation }) {
             <View>
                 <View>
                     <Header
-                        iconName="storefront-outline"
+                        iconName="home-outline"
                         title="All Centres"
                         iconLeft="add-box"
                         marginLeft={5}
                         marginRight={170}
-                        onPress={() => setModalVisible(true)
+                        onPress={() => showModal(true)
                         } />
                     <View style={styles.sliderContainer}>
                         <ScrollView horizontal={true} hire >
@@ -142,7 +142,7 @@ export default function Centres({ navigation }) {
                             <View style={{ marginTop: 10, marginRight: 20, }} >
                                 <Card onPress={() => { navigation.navigate("CentreDetails") }}>
                                     <Card.Cover style={{ height: 80, borderTopLeftRadius: 15, borderTopRightRadius: 15 }} source={{ uri: item.Image }} />
-                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%", borderRadius: 4, justifyContent: 'center',   alignItems: 'center', }}>
+                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%", borderRadius: 4, justifyContent: 'center', alignItems: 'center', }}>
                                         <Text style={{ color: "#ffffff", }}>9.9</Text>
                                     </View>
                                     <Card.Content>
