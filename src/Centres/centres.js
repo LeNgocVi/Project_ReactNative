@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView, StyleSheet, Text, FlatList, Image } from "react-native-web";
+import { View, ScrollView, StyleSheet, Text, FlatList, Image } from "react-native";
 import { Card, Title, Paragraph, Portal, Searchbar, Modal, Provider, Avatar } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
@@ -17,10 +17,10 @@ import { RadioButton } from 'react-native-paper';
 
 export default function Centres({ navigation }) {
     const [visible, setVisible] = React.useState(false);
-
+    const [value, setValue] = React.useState('first');
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
-    const [idCenter, setIdCenter] = React.useState(0);
+    const [checked, setChecked] = React.useState('1');
     const containerStyle = {
         backgroundColor: 'white', flex: 1,
         marginTop: 100, justifyContent: 'flex-start',
@@ -119,6 +119,7 @@ export default function Centres({ navigation }) {
                 </View>
 
                 <View style={{ marginTop: "20%", width: "94%", marginLeft: "3%", marginRight: "3%", marginBottom: 20 }}>
+
                     <View style={{ flexDirection: 'row', height: 42, width: "100%", marginTop: 10, marginBottom: 10, marginRight: 20 }}>
                         <View style={{ width: '82%', height: 42, }}>
                             <Searchbar
@@ -237,21 +238,37 @@ export default function Centres({ navigation }) {
                                 value={searchQuery}
                                 style={{ width: '100%', marginBottom: 20, marginTop: 20 }}
                             />
+                            <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
 
-                            <View style={{ flexDirection: "row", marginLeft: "4%", width: "96%+", height: 50, marginBottom: 20 }}>
-                                <View >
-                                    <Avatar.Image size={45} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xR_H-gJTx6CoL8eZY-Cb4xf79ODN4tF7iA&usqp=CAU' }} />
-                                </View>
-                                <View styles={{ marginLeft:70}}>
-                               
-                                <RadioButton
-                                    value="first"
-                                    color="#ff6600"
-                                    status={idCenter === '0' ? 'idCenter' : 'unchecked'}
-                                    onPress={() => { setIdCenter('2') }}
-                                />
-                                </View>
-                            </View>
+                                <FlatList
+                                    data={DATA}
+                                    renderItem={({ item }) =>
+                                        <View style={{ flexDirection: "row", marginLeft: "4%", width: "96%", marginBottom: 20, alignItems: 'center', fontSize: 24 }}>
+                                            <View   style={{width: "16%", marginRight:3}} >
+                                                <Avatar.Image size={50} source={{ uri: item.Image }} />
+                                            </View>
+                                            <View style={{
+                                              paddingLeft:5,
+                                                width: "73%"
+                                            }}><Text>{item.title}</Text></View>
+                                            <RadioButton
+                                                value={item.id}
+                                                color="#ff6600"
+                                                size={30}
+                                                marginTop={20}
+                                                uncheckedColor="#ff6600"
+                                                onValueChange={() => { navigation.navigate("CentreDetails") }}
+                                            />
+
+
+                                        </View>
+
+                                    } />
+
+                            </RadioButton.Group>
+
+
+
                         </View>
                     </Modal>
 
