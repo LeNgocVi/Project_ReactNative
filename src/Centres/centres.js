@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { View, ScrollView, StyleSheet, Text, FlatList } from "react-native-web";
-import { Card, Title, Paragraph, Portal, Searchbar, Modal, Provider } from 'react-native-paper';
+import { View, ScrollView, StyleSheet, Text, FlatList, Image } from "react-native-web";
+import { Card, Title, Paragraph, Portal, Searchbar, Modal, Provider, Avatar } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Divider } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,6 +10,7 @@ import { Feather } from '@expo/vector-icons';
 import Header from '../components/header';
 import { DATA } from "./data";
 import CircleBorder from '../CircleBorder';
+import { RadioButton } from 'react-native-paper';
 
 
 
@@ -18,6 +20,7 @@ export default function Centres({ navigation }) {
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
+    const [idCenter, setIdCenter] = React.useState(0);
     const containerStyle = {
         backgroundColor: 'white', flex: 1,
         marginTop: 100, justifyContent: 'flex-start',
@@ -115,35 +118,41 @@ export default function Centres({ navigation }) {
                     </View>
                 </View>
 
-                <View style={{ marginTop: "25%", marginRight: "3%", marginLeft: "4%", width: "96%" }}>
-                    <View style={{ flexDirection: 'row', height: 42, width: "100%", marginTop: 10, marginRight: 20, marginBottom: 10, }}>
-                        <Searchbar
-                            placeholder="Search"
-                            onChangeText={onChangeSearch}
-                            value={searchQuery}
-                            style={{ width: '80%', height: "100%", marginBottom: 10, marginRight: 15 }}
-                        />
+                <View style={{ marginTop: "20%", width: "94%", marginLeft: "3%", marginRight: "3%", marginBottom: 20 }}>
+                    <View style={{ flexDirection: 'row', height: 42, width: "100%", marginTop: 10, marginBottom: 10, marginRight: 20 }}>
+                        <View style={{ width: '82%', height: 42, }}>
+                            <Searchbar
+                                placeholder="Search Centre name"
+                                onChangeText={onChangeSearch}
+                                value={searchQuery}
+                                style={{ borderRadius: 6, height: 42 }}
+                            />
+                        </View>
+                        <View style={{ marginLeft: "2%", width: "16%", height: 42, backgroundColor: "#FFFFFF", alignItems: 'center', justifyContent: 'center', borderRadius: 4, right: 0 }}>
+                            <Ionicons
+                                name="filter"
+                                size={30}
+                                color="#ff6600"
+                                onPress={showModal}
 
-
-                        <Ionicons
-                            name="filter"
-                            size={30}
-                            styles={{ width: '20%', marginLeft: 10 }}
-                            color="#ff6600"
-                            onPress={showModal}
-
-                        />
+                            />
+                        </View>
 
                     </View>
 
                     <FlatList
                         data={DATA}
                         renderItem={({ item }) =>
-                            <View style={{ marginTop: 10, marginRight: 20, }} >
+                            <View style={{ marginBottom: 20 }} >
                                 <Card onPress={() => { navigation.navigate("CentreDetails") }}>
-                                    <Card.Cover style={{ height: 80, borderTopLeftRadius: 15, borderTopRightRadius: 15 }} source={{ uri: item.Image }} />
-                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%", borderRadius: 4, justifyContent: 'center', alignItems: 'center', }}>
+                                    <Card.Cover style={{ height: 80, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} source={{ uri: item.Image }} />
+                                    <View style={{ width: 24, height: 22, backgroundColor: "#ff6600", top: 14, position: 'absolute', marginLeft: "3%", borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}>
                                         <Text style={{ color: "#ffffff", }}>9.9</Text>
+                                    </View>
+                                    <View style={{ width: 54, height: 26, top: 40, right: 8, position: 'absolute', marginLeft: "3%", borderRadius: 6, justifyContent: 'center', alignItems: 'center', }}>
+                                        <Image style={{ width: 54, height: 26, borderRadius: 6 }} source={{
+                                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xR_H-gJTx6CoL8eZY-Cb4xf79ODN4tF7iA&usqp=CAU'
+                                        }} />
                                     </View>
                                     <Card.Content>
                                         <View style={{ marginTop: 15 }}>
@@ -208,7 +217,7 @@ export default function Centres({ navigation }) {
             <Provider>
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} transparent={true} contentContainerStyle={containerStyle}>
-                        <View style={{ marginLeft: 10 }}>
+                        <View style={{ marginLeft: "4%", width: "93%", marginRight: "3%" }}>
                             <View style={{ flexDirection: 'row', height: 40, marginTop: 10 }}>
                                 <View   ><Ionicons
                                     name="md-close-outline"
@@ -220,51 +229,29 @@ export default function Centres({ navigation }) {
                                 <View style={{ marginLeft: "35%" }}> <Text >Select Centre</Text></View>
 
                             </View>
-
+                            <Divider width={5} />
 
                             <Searchbar
                                 placeholder="Search Centre name"
                                 onChangeText={onChangeSearch}
                                 value={searchQuery}
-                                style={{ width: '10`0%', marginBottom: 10, marginRight: 15 }}
+                                style={{ width: '100%', marginBottom: 20, marginTop: 20 }}
                             />
 
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
-                            <View styles={{ height: 70, marginTop: 0 }}><MaterialCommunityIcons
-                                name="storefront-outline"
-                                size={25}
-                                color="#ff6600"
-                            />
-                                <Text >     Select Centre   </Text></View>
+                            <View style={{ flexDirection: "row", marginLeft: "4%", width: "96%+", height: 50, marginBottom: 20 }}>
+                                <View >
+                                    <Avatar.Image size={45} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xR_H-gJTx6CoL8eZY-Cb4xf79ODN4tF7iA&usqp=CAU' }} />
+                                </View>
+                                <View styles={{ marginLeft:70}}>
+                               
+                                <RadioButton
+                                    value="first"
+                                    color="#ff6600"
+                                    status={idCenter === '0' ? 'idCenter' : 'unchecked'}
+                                    onPress={() => { setIdCenter('2') }}
+                                />
+                                </View>
+                            </View>
                         </View>
                     </Modal>
 
@@ -286,12 +273,13 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     sliderCard: {
-        width: '25%',
+        width: 178,
+        height: 98,
         paddingVertical: 20,
         paddingHorizontal: 15,
         backgroundColor: '#fff',
         marginLeft: 15,
-        borderRadius: 6,
+        borderRadius: 10,
     },
     sliderText: {
         fontSize: 25,
