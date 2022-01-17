@@ -17,6 +17,7 @@ import { RadioButton } from 'react-native-paper';
 
 export default function Centres({ navigation }) {
     const [visible, setVisible] = React.useState(false);
+    const [Arr]=React.useState(DATA);
     const [value, setValue] = React.useState('first');
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
@@ -169,16 +170,17 @@ export default function Centres({ navigation }) {
                                                 <Text ><Ionicons
                                                     name="happy"
                                                     size={14}
-                                                    color="#857E7F" paddingHorizontal={30}
-                                                />  {item.children}</Text>
+                                                    color="#857E7F" 
+                                                    style={{paddingRight:10}}
+                                                />{item.children}</Text>
                                             </View>
                                             <View style={{ width: "50%", }}>
                                                 <Text ><FontAwesome5
                                                     name="clipboard-list"
                                                     size={14}
                                                     color="#857E7F"
-                                                    marginRight={30}
-                                                />  {item.base}</Text>
+                                                    style={{paddingRight:10}}
+                                                />{item.base}</Text>
                                             </View>
 
                                         </View>
@@ -189,7 +191,8 @@ export default function Centres({ navigation }) {
                                                     name="temperature-low"
                                                     size={14}
                                                     color="#857E7F"
-                                                />  {item.waitlist}</Text>
+                                                    style={{paddingRight:10}}
+                                                />{item.waitlist}</Text>
                                             </View>
 
                                             <View style={{ width: "50%" }}>
@@ -197,7 +200,8 @@ export default function Centres({ navigation }) {
                                                     name="hand-holding-water"
                                                     size={14}
                                                     color="#857E7F"
-                                                />  {item.service}</Text>
+                                                    style={{paddingRight:10}}
+                                                />{item.service}</Text>
                                             </View>
 
                                         </View>
@@ -227,7 +231,7 @@ export default function Centres({ navigation }) {
                                     onPress={hideModal}
 
                                 /></View>
-                                <View style={{ marginLeft: "35%" }}> <Text >Select Centre</Text></View>
+                                <View style={{ marginLeft: "35%" }}><Text>Select Centre</Text></View>
 
                             </View>
                             <Divider width={5} />
@@ -241,7 +245,7 @@ export default function Centres({ navigation }) {
                             <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
 
                                 <FlatList
-                                    data={DATA}
+                                    data={Arr}
                                     renderItem={({ item }) =>
                                         <View style={{ flexDirection: "row", marginLeft: "4%", width: "96%", marginBottom: 20, alignItems: 'center', fontSize: 24 }}>
                                             <View   style={{width: "16%", marginRight:3}} >

@@ -119,7 +119,7 @@ centered_view: {
 warning_modal: {
   width: Dimensions.get('window').width,
   height: 300,
-  backgroundColor: '#eeff0f0',
+  backgroundColor: '#fff',
   borderRadius: 20,
   top: "40%"
 },
