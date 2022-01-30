@@ -7,20 +7,19 @@ import ForgotPassword from "./src/components/authentication/forgotPassword";
 import React from "react";
 import Detail from "./src/Detail/Detail";
 import BottomTab from "./src/navigation/bottomTab";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-  
       <Stack.Navigator>
-
         <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
           component={LoginScreen}
         />
-      
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="BottomTab"
@@ -45,4 +44,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-

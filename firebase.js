@@ -1,6 +1,8 @@
 import firebase from "firebase/compat/app";
+
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyC5VqR_BjYly8__Hjar8LPgu-lYUr9uNh4",
   authDomain: "projectreactnative-c4173.firebaseapp.com",
@@ -19,5 +21,8 @@ if (firebase.apps.length === 0) {
   app = firebase.app();
 }
 
+//Lấy data từ database
+const db = app.firestore();
+
 const auth = firebase.auth();
-export { auth };
+export { auth, db };

@@ -1,11 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-// import { AntDesign } from "@expo/vector-icons";
 import { View, Text } from "react-native";
 const Tab = createBottomTabNavigator();
 import Dashboard from "../components/dashboard/dashboad";
 import HomeScreen from "../../Home";
 import Centres from "../Centres/CentresApp";
+import moreScreen from "./moreScreen";
+
 function CentresScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -21,6 +22,7 @@ function SettingsScreen() {
     </View>
   );
 }
+
 export default function BottomTab() {
   return (
     <Tab.Navigator
@@ -30,26 +32,25 @@ export default function BottomTab() {
         tabBarIcon: ({ focused, color }) => {
           let iconName;
 
-          if (route.name === 'Dashboard') {
-            iconName = focused ? 'home-outline' : 'home-outline';
-          } else if (route.name === 'Centres') {
-            iconName = focused ? 'storefront-outline' : 'storefront-outline';
-          } else if (route.name === 'More') {
-            iconName = focused ? 'dots-horizontal' : 'dots-horizontal';
+          if (route.name === "Dashboard") {
+            iconName = focused ? "home-outline" : "home-outline";
+          } else if (route.name === "Centres") {
+            iconName = focused ? "storefront-outline" : "storefront-outline";
+          } else if (route.name === "More") {
+            iconName = focused ? "dots-horizontal" : "dots-horizontal";
           }
           return (
             <MaterialCommunityIcons name={iconName} size={30} color={color} />
           );
         },
-        tabBarActiveTintColor: '#ff6600   ',
-        tabBarInactiveTintColor: 'gray',
-        headerTitleAlign: 'center',
+        tabBarActiveTintColor: "#ff6600   ",
+        tabBarInactiveTintColor: "gray",
+        headerTitleAlign: "center",
         tabBarLabelStyle: {
           fontSize: 15,
         },
-      })}>
-
-
+      })}
+    >
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
@@ -78,7 +79,7 @@ export default function BottomTab() {
       />
       <Tab.Screen
         name="More"
-        component={SettingsScreen}
+        component={moreScreen}
         options={{
           tabBarLabel: "More",
           tabBarIcon: ({ color }) => (
@@ -90,7 +91,6 @@ export default function BottomTab() {
           ),
         }}
       />
-
     </Tab.Navigator>
   );
 }
